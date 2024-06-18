@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="#" class="main-btn">So sánh giá cả</a>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <div id="popup-body"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+<style>
+    /* Đặt ẩn popup ban đầu */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 80%;
+    max-width: 800px;
+    max-height: 800px;
+    border-radius: 5px;
+    position: relative;
+    overflow-y: auto;
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.main-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.main-btn:hover {
+    background-color: #0056b3;
+}
+
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    var btn = document.querySelector(".main-btn");
+    var popup = document.getElementById("popup");
+    var closeBtn = document.querySelector(".close-btn");
+
+    btn.addEventListener("click", function(event) {
+        event.preventDefault();
+        window.open("https://routine.vn/quan-jean-nam-ong-om-xanh-tron-form-slim-10s24dpa005.html", "_blank");
+        popup.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", function() {
+        popup.style.display = "none";
+    });
+
+    window.addEventListener("click", function(event) {
+        if (event.target === popup) {
+            popup.style.display = "none";
+        }
+    });
+});
+
+</script>
+</html>
